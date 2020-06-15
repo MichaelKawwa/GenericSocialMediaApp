@@ -1,0 +1,24 @@
+{% extends 'frontpage/base.html' %}
+
+<center>
+
+{% block content %}
+    <div class="container", style=" margin: 0; position: absolute; top: 25%; left: 100%; -ms-transform: translateY(-25%); transform: translateY(-50%); -ms-transform: translateX(-100%); transform: translateX(-100%);">
+        <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+            <button style="background-color:#F4EB16; color:blue" class="btn btn-outline-info" type="submit">Login</button>
+        </form>
+        {% for message in messages %}
+          <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
+          </div>
+        {% endfor %}
+        Don't have an account? <a href="/signup" target="blank"><strong>register here</strong></a>!
+    </div>
+{% endblock %}
+
+</center>
